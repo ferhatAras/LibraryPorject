@@ -1,0 +1,48 @@
+﻿@model KutuphaneMvc.Models.Entities.TBLUYELER
+@{
+    ViewBag.Title = "UyeGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>UyeGetir</h2>
+
+@using (Html.BeginForm("UyeGuncelle", "Uye", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-label ">
+        <br />
+        @Html.LabelFor(k => k.ID)
+        <label class="mb-3">ID</label>
+
+        @Html.TextBoxFor(p => p.ID, new { @class = "form-control form-control-lg" })
+        <br />
+        @*@Html.LabelFor(k=>k.AD)*@
+
+        <label class="mb-3">Üye Adı</label>
+        @Html.TextBoxFor(p => p.AD, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Üye Soyad</label>
+        @Html.TextBoxFor(p => p.SOYAD, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Kullanıcı Adı</label>
+        @Html.TextBoxFor(p => p.KULLANICIADI, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Şifre</label>
+        @Html.TextBoxFor(p => p.SIFRE, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Mail</label>
+        @Html.TextBoxFor(p => p.MAIL, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Üye Okulu</label>
+        @Html.TextBoxFor(p => p.OKUL, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Telefon</label>
+        @Html.TextBoxFor(p => p.TELEFON, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Fotoğraf Link</label>
+        @Html.TextBoxFor(p => p.FOTOGRAF, new { @class = "form-control form-control-lg " })
+    </div>
+    <div class="mt-3">
+        <button class="btn btn-primary btn-lg">Güncelle</button>
+    </div>
+}

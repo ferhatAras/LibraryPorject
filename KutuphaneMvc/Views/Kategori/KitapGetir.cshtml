@@ -1,0 +1,44 @@
+﻿@model KutuphaneMvc.Models.Entities.TBLKITAP
+@{
+    ViewBag.Title = "KitapGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("KitapGuncelle", "Kitap", FormMethod.Post))
+{
+    <div style="margin-top:18px">
+        <div class="form-label">
+            <div style="margin-bottom:15px">
+                <label>Kitap ID</label>
+                @Html.TextBoxFor(k => k.ID, new { @class = "form-control form-control-lg" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Kitap Adı</label>
+                @Html.TextBoxFor(k => k.AD, new { @class = "form-control form-control-lg" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Kategori</label>
+                @Html.TextBoxFor(k => k.KATEGORI, new { @class = "form-control form-control-lg" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Yazarı </label>
+                @Html.TextAreaFor(k => k.YAZAR, new { @class = "form-control form-control-lg" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Basım Yılı </label>
+                @Html.TextAreaFor(k => k.BASIMYILI, new { @class = "form-control form-control-lg" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Yayınevi </label>
+                @Html.TextAreaFor(k => k.YAYINEVI, new { @class = "form-control form-control-lg" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Sayfa Sayısı </label>
+                @Html.TextAreaFor(k => k.SAYFA, new { @class = "form-control form-control-lg" })
+            </div>
+           
+            <button class="btn btn-primary btn-lg">Güncelle</button>
+        </div>
+    </div>
+}
+

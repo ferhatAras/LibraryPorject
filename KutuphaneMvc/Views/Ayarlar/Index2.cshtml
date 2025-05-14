@@ -1,0 +1,95 @@
+﻿@using KutuphaneMvc.Models.Entities
+@model List<tbladmın>
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<br />
+
+<!-- Tablo Yapısı -->
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Kullanıcı</th>
+        <th>Yetki</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ID</th>
+            <th>@item.Kullanici</th>
+            <th>@item.Yetki</th>
+            <td>
+                <div>
+                    <a class="btn btn-info btn-lg" href="/Ayarlar/AdminGuncelle/@item.ID">
+                        <i class="fas fa-pencil-alt"></i> Düzenle
+                    </a>
+                </div>
+            </td>
+            <td>
+                <a class="btn btn-danger btn-lg" href="/Ayarlar/AdminSil/@item.ID">
+                    <i class="fas fa-trash"></i> Sil
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+
+<!-- Yeni Admin Ekle Butonu -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Modal1">Yeni Admin Ekle</button>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="Modal1Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="Modal1Label">Admin Ekleme Paneli</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action="/Ayarlar/YeniAdmin/">
+                <div class="modal-body">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" name="kullanici" class="form-control" />
+                    <br />
+                    <label>Şifre</label>
+                    <input type="text" name="Sifre" class="form-control" />
+                    <br />
+                    <label>Yetki</label>
+                    <input type="text" name="Yetki" class="form-control" />
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-info btn-lg">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery, Popper ve Bootstrap JavaScript dosyalarını ekleyin -->
+<script src="~/Scripts/jquery-3.7.0.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Modal açıldığında inputları temizle
+        $('#Modal1').on('show.bs.modal', function () {
+            $(this).find("input").val('');
+        });
+
+        // Modal kapanma olayları için
+        $('#Modal1').on('hidden.bs.modal', function () {
+            $(this).find("input").val(''); // Modal kapandığında form alanlarını temizleme
+        });
+
+        // Modalı buton ile aç
+        $(".btn-primary").click(function () {
+            $("#Modal1").modal('show');
+        });
+    });
+</script>

@@ -1,0 +1,27 @@
+﻿@using KutuphaneMvc.Models.Entities
+@model List<TBLHARAKET>
+@{
+    ViewBag.Title = "UyeKitapGecmis";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>UyeKitapGecmis:@ViewBag.u1 </h2>
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>Kitap Ad</th>
+        <th>Personel</th>
+        <th>Alış Tarih</th>
+        <th>İade Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.TBLKITAP.AD</td>
+            <td>@x.TBLPERSONEL.PERSONEL</td>
+            <td>@Convert.ToDateTime(x.ALISTARIHI).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(x.IADETARIH).ToString("dd/MM/yyyy")</td>            
+        </tr>
+    }
+</table>
+

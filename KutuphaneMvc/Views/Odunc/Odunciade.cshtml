@@ -1,0 +1,45 @@
+﻿@model KutuphaneMvc.Models.Entities.TBLHARAKET
+@{
+    ViewBag.Title = "Odunciade";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("OduncGuncelle", "Odunc", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-label ">
+        <br />
+        <label class="mb-3">Hareket ID</label>
+        @Html.TextBoxFor(p => p.ID, new { @class = "form-control form-control-lg" })
+        <br />
+        <label class="mb-3">Kitap Adı</label>
+        @Html.TextBoxFor(p => p.TBLKITAP.AD, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Üye</label>
+        @Html.TextBoxFor(p => p.TBLUYELER.AD, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Personel</label>
+        @Html.TextBoxFor(p => p.TBLPERSONEL.PERSONEL, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Alış Tarihi</label>
+        @Html.TextBoxFor(p => p.ALISTARIHI, "{0:dd.MM.yyyy}", new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">İade Tarihi</label>
+        @Html.TextBoxFor(p => p.IADETARIH, "{0:dd.MM.yyyy}", new { @class = "form-control form-control-lg " })
+        <br />
+        <label>Geç Gelen Gün Sayısı</label>
+        <input type="text" class="form-control" id="Gecinput" value="@ViewBag.dgr"/>
+
+        <br />
+        <label class="mb-3">Üye Getirdiği Tarih</label>
+        <input type="text" class="form-control form-control-lg" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />
+
+
+
+    </div>
+    <div class="mt-3">
+        <button class="btn btn-primary btn-lg">Ödünç Kitap Al</button>
+    </div>
+}
+

@@ -1,0 +1,32 @@
+﻿@model KutuphaneMvc.Models.Entities.TBLDUYURU
+@{
+    ViewBag.Title = "DuyuruBilgiler";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("DuyuruGuncelle", "Duyuru", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-label ">
+        <br />
+        @*@Html.LabelFor(k => k.ID)*@
+        <label class="mb-3">ID</label>
+
+        @Html.TextBoxFor(p => p.ID, new { @class = "form-control form-control-lg" })
+        <br />
+
+        <label class="mb-3">Duyuru Kategori</label>
+        @Html.TextBoxFor(p => p.KATEGORI, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Duyuru Bilgileri</label>
+        @Html.TextAreaFor(p => p.ICERIK, new { @class = "form-control form-control-lg " })
+        <br />
+        <label class="mb-3">Duyuru Tarih</label>
+        @Html.TextBoxFor(p => p.TARIH, new { @class = "form-control form-control-lg " })
+        <br />
+    </div>
+    <div class="mt-3">
+        <button class="btn btn-primary btn-lg">Güncelle</button>
+    </div>
+}
+

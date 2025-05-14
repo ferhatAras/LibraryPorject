@@ -1,0 +1,93 @@
+﻿
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 240px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #134B70;
+            overflow-x: hidden;
+            padding-top: 16px;
+        }
+
+            .sidebar a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 20px;
+                color: #f1f1f1;
+                display: block;
+            }
+
+                .sidebar a:hover {
+                    color: #212A3E;
+                }
+
+        .main {
+            margin-left: 240px; /* Same as the width of the sidenav */
+            padding: 0px 10px;
+        }
+
+        @@media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+                .sidebar a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="/istatistik/Index/"><i class="fa fa-fw fa-home"></i>&nbsp; Ana Sayfa </a>
+        <a href="/Kategori/Index/"><i class="fa fa-fw fa-list"></i>&nbsp; Kategoriler </a>
+        <a href="/Kitap/Index/"><i class="fa fa-fw fa-book"></i>&nbsp; Kitaplar </a>
+        <a href="/Yazar/Index/"><i class="fa fa-fw fa-pencil"></i>&nbsp; Yazarlar </a>
+        <a href="/Uye/Index/"><i class="fa fa-fw fa-user"></i>&nbsp; Üyeler </a>
+        @*@if (User.IsInRole("A"))
+        {*@
+            <a href="/Personel/Index/"><i class="fa-solid fa-street-view"></i>&nbsp; Personeller </a>
+            <a href="/Odunc/OduncVer/"><i class="fa-solid fa-hand-holding-hand"></i>&nbsp; Ödünç Kitap Ver </a>
+            <a href="/Odunc/Index/"><i class="fa-solid fa-hand-holding-medical"></i>&nbsp; Ödünç Kitap Al </a>
+        @*}*@
+        @*<a href=""><i class="fa-solid fa-chart-simple"></i>&nbsp; İstatisktik </a>*@
+        <a href="/Duyuru/Index/"><i class="fa-solid fa-bullhorn"></i>&nbsp; Duyuru </a>
+        <a href=/islem/Index/"><i class="fa-solid fa-chalkboard-user"></i>&nbsp; İşlemler </a>
+        <a href=/istatistik/Hava/"><i class="fa-solid fa-cloud-sun-rain fa-fade"></i>&nbsp; Hava Durumu </a>
+        <a href=/istatistik/HavaKart/"><i class="fa-solid fa-cloud-sun-rain"></i>&nbsp; Hava Kart </a>
+        <a href="/istatistik/Galeri/"><i class="fa-regular fa-images"></i>&nbsp; Galeri </a>
+        <a href="/istatistik/LinqKart/"><i class="fa-regular fa-cart-plus"></i>&nbsp; Linq Kartlar </a>
+        <a href="/vitrin/Index/"><i class="fa-solid fa-gift"></i>&nbsp; Vitrin </a>
+        <a href="/Grafik/Index/"><i class="fa-solid fa-chart-line "></i>&nbsp; Grafik </a>
+        <a href="/Ayarlar/Index2/"><i class="fa-solid fa-sliders"></i>&nbsp; Ayarlar </a>
+        <a href="/Panel/LogOut/"><i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i>&nbsp; Çıkış </a>
+    </div>
+
+    <div class="main">
+        @RenderBody()
+    </div>
+
+</body>
+</html>
+
